@@ -6,7 +6,7 @@
   # usuario ALL=(ALL) NOPASSWD: /usr/bin/passwd
   
 #######Funcao de controle de acesso as outras funcoes do script##############
-$empresa = empresa
+empresa = "empresa"
 cat /etc/passwd | awk 'BEGIN{ FS=":" } { print "\t"$4"\t"$1"\t"$5 }' | sort | grep "[0-9][0-9][0-9][0-9][0-9][0-9][0-9][4]" > /home/universo/log/tabela-usuario.log
 cp /home/$empresa/log/tabela-usuario.log /home/$empresa/admin/logscript/
 Principal() {	
@@ -21,7 +21,7 @@ Principal() {
 	fl="$lb|$fcor"
 	linha="$lb +----------------------------------------------------------------------------+$fcor"
         ######### Cria estrutura de diretorios ##########################
-	uhome="/home/universo" 	# Diretorio de grupos
+	uhome="/home/$empresa" 	# Diretorio de grupos
 	bhome="/home/backup"	# Diretorio de backup
 	loghome="/home/log"	# Diretorio de logs
 	######### Cria diretorios caso nao exista #######################
